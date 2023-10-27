@@ -10,7 +10,6 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/s3"
 	"github.com/cloudquery/plugin-sdk/v4/schema"
-	"github.com/cloudquery/plugin-sdk/v4/specs"
 	"github.com/mitchellh/go-homedir"
 	"github.com/rs/zerolog"
 	ycs3 "github.com/yandex-cloud/cq-provider-yandex/client/s3"
@@ -73,7 +72,7 @@ func (c *Client) withResource(id string) *Client {
 	}
 }
 
-func Configure(ctx context.Context, logger zerolog.Logger, s specs.Source) (schema.ClientMeta, error) {
+func Configure(ctx context.Context, logger zerolog.Logger) (schema.ClientMeta, error) {
 	var spec Spec
 	err := s.UnmarshalSpec(&spec)
 	if err != nil {

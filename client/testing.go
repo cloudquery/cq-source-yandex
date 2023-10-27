@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/cloudquery/plugin-sdk/v4/plugins"
+	"github.com/cloudquery/plugin-sdk/v4/plugin"
 	"github.com/cloudquery/plugin-sdk/v4/schema"
-	"github.com/cloudquery/plugin-sdk/v4/specs"
 	"github.com/rs/zerolog"
 )
 
@@ -21,7 +20,7 @@ func MockTestHelper(t *testing.T, table *schema.Table, createService func() (*Se
 
 	table.IgnoreInTests = false
 
-	newTestExecutionClient := func(ctx context.Context, logger zerolog.Logger, spec specs.Source) (schema.ClientMeta, error) {
+	newTestExecutionClient := func(ctx context.Context, logger zerolog.Logger) (schema.ClientMeta, error) {
 		svc, err := createService()
 		if err != nil {
 			return nil, fmt.Errorf("failed to createService: %w", err)
@@ -39,18 +38,12 @@ func MockTestHelper(t *testing.T, table *schema.Table, createService func() (*Se
 
 		return c, nil
 	}
-	p := plugins.NewSourcePlugin(
+	p := plugin.NewSourcePlugin(
 		table.Name,
 		version,
 		[]*schema.Table{
 			table,
 		},
 		newTestExecutionClient)
-	plugins.TestSourcePluginSync(t, p, specs.Source{
-		Name:         "dev",
-		Path:         "cloudquery/dev",
-		Version:      version,
-		Tables:       []string{table.Name},
-		Destinations: []string{"test-destination"},
-	})
+	plugin.TestSourcePluginSync(t, p)
 }
