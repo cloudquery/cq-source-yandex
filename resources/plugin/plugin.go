@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"github.com/cloudquery/plugin-sdk/plugins"
+	"github.com/cloudquery/plugin-sdk/v4/plugins"
 	"github.com/yandex-cloud/cq-provider-yandex/client"
 )
 

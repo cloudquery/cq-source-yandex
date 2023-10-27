@@ -9,7 +9,7 @@ import (
 	"github.com/iancoleman/strcase"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	"github.com/thoas/go-funk"
 )
 

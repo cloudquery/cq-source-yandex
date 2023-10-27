@@ -1,8 +1,8 @@
 package recipes
 
 import (
-	"github.com/cloudquery/plugin-sdk/codegen"
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/codegen"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	iam_resource "github.com/yandex-cloud/cq-provider-yandex/resources/services/iam"
 	"github.com/yandex-cloud/go-genproto/yandex/cloud/iam/v1"
 )

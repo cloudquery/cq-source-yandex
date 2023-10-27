@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/cloudquery/plugin-sdk/serve"
+	"github.com/cloudquery/plugin-sdk/v4/serve"
 	"github.com/yandex-cloud/cq-provider-yandex/resources/plugin"
 )
 

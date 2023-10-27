@@ -1,7 +1,7 @@
 package recipes
 
 import (
-	"github.com/cloudquery/plugin-sdk/codegen"
+	"github.com/cloudquery/plugin-sdk/v4/codegen"
 	k8s_resource "github.com/yandex-cloud/cq-provider-yandex/resources/services/k8s"
 )
 

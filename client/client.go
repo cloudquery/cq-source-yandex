@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/aws/aws-sdk-go/service/s3"
-	"github.com/cloudquery/plugin-sdk/schema"
-	"github.com/cloudquery/plugin-sdk/specs"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
+	"github.com/cloudquery/plugin-sdk/v4/specs"
 	"github.com/mitchellh/go-homedir"
 	"github.com/rs/zerolog"
 	ycs3 "github.com/yandex-cloud/cq-provider-yandex/client/s3"

@@ -1,7 +1,7 @@
 package recipes
 
 import (
-	"github.com/cloudquery/plugin-sdk/codegen"
+	"github.com/cloudquery/plugin-sdk/v4/codegen"
 	"github.com/yandex-cloud/go-genproto/yandex/cloud/kms/v1"
 )
 

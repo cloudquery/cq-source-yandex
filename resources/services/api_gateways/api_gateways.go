@@ -3,7 +3,7 @@
 package api_gateways
 
 import (
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	"github.com/yandex-cloud/cq-provider-yandex/client"
 )
 

@@ -1,7 +1,7 @@
 package plugin
 
 import (
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	"github.com/yandex-cloud/cq-provider-yandex/resources/services/access_bindings"
 	apigateways "github.com/yandex-cloud/cq-provider-yandex/resources/services/api_gateways"
 	"github.com/yandex-cloud/cq-provider-yandex/resources/services/certificatemanager"

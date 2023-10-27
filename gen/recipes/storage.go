@@ -1,8 +1,8 @@
 package recipes
 
 import (
-	"github.com/cloudquery/plugin-sdk/codegen"
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/codegen"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	storage_resource "github.com/yandex-cloud/cq-provider-yandex/resources/services/storage"
 )
 

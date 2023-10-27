@@ -12,8 +12,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/cloudquery/plugin-sdk/codegen"
-	"github.com/cloudquery/plugin-sdk/schema"
+	"github.com/cloudquery/plugin-sdk/v4/codegen"
+	"github.com/cloudquery/plugin-sdk/v4/schema"
 	"github.com/iancoleman/strcase"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )
