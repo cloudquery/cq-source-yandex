@@ -4,25 +4,29 @@ import (
 	"github.com/cloudquery/plugin-sdk/v4/schema"
 )
 
-func MultiplexBy(resourcesGetter func(client *Client) []string) func(meta schema.ClientMeta) []schema.ClientMeta {
-	return func(meta schema.ClientMeta) []schema.ClientMeta {
-		var l = make([]schema.ClientMeta, 0)
-		client := meta.(*Client)
-		for _, id := range resourcesGetter(client) {
-			l = append(l, client.withResource(id))
-		}
-		return l
+func MultiplexByOrg(meta schema.ClientMeta) []schema.ClientMeta {
+	client := meta.(*Client)
+	res := make([]schema.ClientMeta, len(client.orgs))
+	for i, id := range client.orgs {
+		res[i] = client.withOrgID(id)
 	}
+	return res
 }
 
-func Organizations(client *Client) []string {
-	return client.orgs
+func MultiplexByCloud(meta schema.ClientMeta) []schema.ClientMeta {
+	client := meta.(*Client)
+	res := make([]schema.ClientMeta, len(client.clouds))
+	for i, id := range client.clouds {
+		res[i] = client.withCloudID(id)
+	}
+	return res
 }
 
-func Clouds(client *Client) []string {
-	return client.clouds
-}
-
-func Folders(client *Client) []string {
-	return client.folders
+func MultiplexByFolder(meta schema.ClientMeta) []schema.ClientMeta {
+	client := meta.(*Client)
+	res := make([]schema.ClientMeta, len(client.clouds))
+	for i, id := range client.folders {
+		res[i] = client.withFolderID(id)
+	}
+	return res
 }

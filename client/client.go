@@ -45,11 +45,23 @@ type Client struct {
 	Services *Services
 
 	// this is set by table client multiplexer
-	MultiplexedResourceId string
+	OrgID    string
+	CloudID  string
+	FolderID string
 }
 
 func (c *Client) ID() string {
-	return c.MultiplexedResourceId
+	id := "yandex-cloud"
+	if len(c.OrgID) > 0 {
+		id += ":org:" + c.OrgID
+	}
+	if len(c.CloudID) > 0 {
+		id += ":cloud:" + c.CloudID
+	}
+	if len(c.FolderID) > 0 {
+		id += ":folder:" + c.FolderID
+	}
+	return id
 }
 
 func (c *Client) Logger() *zerolog.Logger {
@@ -60,16 +72,28 @@ func (c *Client) S3() *s3.S3 {
 	return c.s3
 }
 
-func (c *Client) withResource(id string) *Client {
-	return &Client{
-		orgs:                  c.orgs,
-		folders:               c.folders,
-		clouds:                c.clouds,
-		Services:              c.Services,
-		s3:                    c.s3,
-		logger:                c.logger.With().Str("id", id).Logger(),
-		MultiplexedResourceId: id,
-	}
+func (c *Client) withOrgID(id string) *Client {
+	res := *c
+	res.FolderID = ""
+	res.CloudID = ""
+	res.OrgID = id
+	res.logger = res.logger.With().Str("org_id", id).Logger()
+	return &res
+}
+
+func (c *Client) withCloudID(id string) *Client {
+	res := *c
+	res.FolderID = ""
+	res.CloudID = id
+	res.logger = res.logger.With().Str("cloud_id", id).Logger()
+	return &res
+}
+
+func (c *Client) withFolderID(id string) *Client {
+	res := *c
+	res.FolderID = id
+	res.logger = res.logger.With().Str("folder_id", id).Logger()
+	return &res
 }
 
 func Configure(ctx context.Context, logger zerolog.Logger) (schema.ClientMeta, error) {

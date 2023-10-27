@@ -5,6 +5,7 @@ go 1.21.1
 toolchain go1.21.3
 
 require (
+	github.com/apache/arrow/go/v14 v14.0.0-20230929201650-00efb06dc0de
 	github.com/aws/aws-sdk-go v1.44.198
 	github.com/cloudquery/plugin-sdk/v4 v4.16.1
 	github.com/golang/mock v1.6.0
@@ -29,7 +30,6 @@ require (
 	github.com/Shopify/goreferrer v0.0.0-20220729165902-8cddb4f5de06 // indirect
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/apache/arrow/go/v13 v13.0.0-20230731205701-112f94971882 // indirect
-	github.com/apache/arrow/go/v14 v14.0.0-20230929201650-00efb06dc0de // indirect
 	github.com/apapsch/go-jsonmerge/v2 v2.0.0 // indirect
 	github.com/aymerick/douceur v0.2.0 // indirect
 	github.com/bahlo/generic-list-go v0.2.0 // indirect
